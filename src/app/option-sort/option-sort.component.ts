@@ -11,7 +11,7 @@ export class OptionSortComponent implements OnChanges {
     @Input() options: string[] = [];
 
     table: number[][] = [];
-    currentPair: IndexPair | null = null;
+    currentPair?: IndexPair;
     nextPairs: IndexPair[] = [];
     skippedPairs: IndexPair[] = [];
 
@@ -51,7 +51,7 @@ export class OptionSortComponent implements OnChanges {
         }
 
         // Void all currently stored pairs
-        this.currentPair = null;
+        delete this.currentPair;
         this.nextPairs = [];
         this.skippedPairs = [];
 
@@ -71,7 +71,7 @@ export class OptionSortComponent implements OnChanges {
 
     private shuffle<T>(array: T[]) {
         for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * i);
+            const j = Math.floor(Math.random() * (i + 1));
             const temp = array[i];
             array[i] = array[j];
             array[j] = temp;

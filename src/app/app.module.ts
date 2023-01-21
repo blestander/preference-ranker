@@ -12,13 +12,15 @@ import { AppComponent } from './app.component';
 import { OptionEntryComponent } from './option-entry/option-entry.component';
 import { OptionDisplayComponent } from './option-display/option-display.component';
 import { OptionSortComponent } from './option-sort/option-sort.component';
+import { OptionComparisonComponent } from './option-comparison/option-comparison.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         OptionEntryComponent,
         OptionDisplayComponent,
-        OptionSortComponent
+        OptionSortComponent,
+        OptionComparisonComponent
     ],
     imports: [
         BrowserModule,
