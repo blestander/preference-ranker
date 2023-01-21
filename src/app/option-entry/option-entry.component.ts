@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import { FormBuilder, FormControl } from '@angular/forms';
     styleUrls: ['./option-entry.component.scss']
 })
 export class OptionEntryComponent {
+
+    @Output() optionsSubmit = new EventEmitter<string[]>();
 
     formControl = new FormControl("");
 
@@ -26,5 +28,15 @@ export class OptionEntryComponent {
 
     get shouldDisableButton(): boolean {
         return this.formControl.invalid;
+    }
+
+    submit(): void {
+        const value = this.formControl.value as string;
+        const lines = value
+            .split('\n')
+            .map(line => line.trim())
+            .filter(line => line.length > 0);
+        console.debug(lines);
+        this.optionsSubmit.emit(lines);
     }
 }

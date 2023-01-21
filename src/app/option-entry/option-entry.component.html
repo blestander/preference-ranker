@@ -5,5 +5,7 @@
     <mat-hint>Put each item onto its own line.</mat-hint>
 </mat-form-field>
 <p>
-    <button mat-raised-button color="accent" [disabled]="shouldDisableButton">Start Ranking</button>
+    <button mat-raised-button color="accent" [disabled]="shouldDisableButton" (click)="submit()">
+        Start Ranking
+    </button>
 </p>
