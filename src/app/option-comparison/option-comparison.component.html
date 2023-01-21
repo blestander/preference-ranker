@@ -1,11 +1,11 @@
-<ng-container *ngIf="currentPair && first && second">
-    <button matRaisedButton color="accent">
+<mat-action-list>
+    <button mat-list-item *ngIf="first">
         {{ options[first.a] }}
     </button>
-    <button matRaisedButton color="accent">
+    <button mat-list-item *ngIf="second">
         {{ options[second.a] }}
     </button>
-    <button matRaisedButton>
-        Skip Comparison For Now
+    <button mat-list-item>
+        Skip for Now
     </button>
-</ng-container>
+</mat-action-list>
