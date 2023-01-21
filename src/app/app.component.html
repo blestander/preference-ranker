@@ -1,2 +1,7 @@
 <h1>Preference Ranker</h1>
 <p>This is where my description of this app will go.</p>
+<ng-container [ngSwitch]="stage">
+    <p *ngSwitchCase="'list'">Your Selections</p>
+    <p *ngSwitchCase="'sort'">Choose which you prefer</p>
+    <p *ngSwitchCase="'display'">Your Preferred Options</p>
+</ng-container>
