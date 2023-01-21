@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { AppComponent } from './app.component';
-import { OptionEntryComponent } from './option-entry/option-entry.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list';
+
+import { AppComponent } from './app.component';
+import { OptionEntryComponent } from './option-entry/option-entry.component';
 import { OptionDisplayComponent } from './option-display/option-display.component';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { OptionDisplayComponent } from './option-display/option-display.componen
         MatButtonModule,
         MatFormFieldModule,
         MatInputModule,
+        MatListModule
     ],
     providers: [],
     bootstrap: [AppComponent]

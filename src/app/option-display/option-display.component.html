@@ -1,4 +1,6 @@
 <h2>Your Ranked Preferences</h2>
-<ol>
-    <li *ngFor="let option of options">{{ option }}</li>
-</ol>
+<mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let option of options; let i=index">
+        {{ i + 1 }}. {{ option }}
+    </mat-list-item>
+</mat-list>
