@@ -1,7 +1,7 @@
 <h1>Preference Ranker</h1>
 <p>This is where my description of this app will go.</p>
 <ng-container [ngSwitch]="stage">
-    <app-option-entry *ngSwitchCase="'list'"></app-option-entry>
-    <p *ngSwitchCase="'sort'">Choose which you prefer</p>
-    <p *ngSwitchCase="'display'">Your Preferred Options</p>
+    <app-option-entry *ngSwitchCase="'list'" (optionsSubmit)="switchToSort($event)"></app-option-entry>
+    <app-option-display *ngSwitchCase="'sort'" [options]="options"></app-option-display>
+    <app-option-display *ngSwitchCase="'display'" [options]="options"></app-option-display>
 </ng-container>

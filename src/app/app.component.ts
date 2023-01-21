@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title = 'preference-ranker';
     stage: 'list' | 'sort' | 'display' = 'list';
+    options: string[] = []
+
+    switchToSort(options: string[]): void {
+        this.stage = 'sort';
+        this.options = options;
+    }
 }

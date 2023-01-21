@@ -9,11 +9,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OptionDisplayComponent } from './option-display/option-display.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        OptionEntryComponent
+        OptionEntryComponent,
+        OptionDisplayComponent
     ],
     imports: [
         BrowserModule,
