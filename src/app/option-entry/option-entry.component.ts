@@ -36,7 +36,6 @@ export class OptionEntryComponent {
             .split('\n')
             .map(line => line.trim())
             .filter(line => line.length > 0);
-        console.debug(lines);
         this.optionsSubmit.emit(lines);
     }
 }

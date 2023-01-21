@@ -1,0 +1,8 @@
+<h2>Which Option Do You Prefer?</h2>
+<p *ngIf="currentPair">Current pair: {{options[currentPair.a]}} vs. {{options[currentPair.b]}}</p>
+<ol start="0">
+    <li *ngFor="let pair of nextPairs">{{options[pair.a]}} vs. {{options[pair.b]}}</li>
+</ol>
+<ul>
+    <li *ngFor="let pair of skippedPairs">{{options[pair.a]}} vs. {{options[pair.b]}}</li>
+</ul>

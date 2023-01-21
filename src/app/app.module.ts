@@ -11,12 +11,14 @@ import { MatListModule } from '@angular/material/list';
 import { AppComponent } from './app.component';
 import { OptionEntryComponent } from './option-entry/option-entry.component';
 import { OptionDisplayComponent } from './option-display/option-display.component';
+import { OptionSortComponent } from './option-sort/option-sort.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         OptionEntryComponent,
-        OptionDisplayComponent
+        OptionDisplayComponent,
+        OptionSortComponent
     ],
     imports: [
         BrowserModule,

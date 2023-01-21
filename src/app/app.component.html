@@ -2,6 +2,6 @@
 <p>This is where my description of this app will go.</p>
 <ng-container [ngSwitch]="stage">
     <app-option-entry *ngSwitchCase="'list'" (optionsSubmit)="switchToSort($event)"></app-option-entry>
-    <app-option-display *ngSwitchCase="'sort'" [options]="options"></app-option-display>
+    <app-option-sort *ngSwitchCase="'sort'" [options]="options"></app-option-sort>
     <app-option-display *ngSwitchCase="'display'" [options]="options"></app-option-display>
 </ng-container>
