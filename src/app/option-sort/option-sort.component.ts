@@ -21,6 +21,33 @@ export class OptionSortComponent implements OnChanges {
             this.reset();
     }
 
+    onPreferenceSelected(pair: IndexPair): void {
+        const winner = pair.a;
+        const loser = pair.b
+
+        // Mark the winner as beating the loser
+        this.table[winner][loser] = -1;
+        this.table[loser][winner] = 1;
+
+        // Mark down all transitive wins and losses
+        for (let i = 0; i < this.options.length; i++)
+            if (i != winner && i != loser)
+                if (this.table[loser][i] < 0) { // If the loser beats I, the winner should also beat I
+                    this.table[winner][i] = -1;
+                    this.table[i][winner] = 1;
+                } else if (this.table[winner][i] > 0) { // If I beats the winner, I should also beat the loser
+                    this.table[loser][i] = 1;
+                    this.table[i][loser] = -1;
+                }
+
+        // Log out the table for debugging
+        console.debug(this.table);
+
+        // Advance the pairs
+        delete this.currentPair;
+        this.advancePairs();
+    }
+
     skipCurrentPair(): void {
         if (this.currentPair) {
             this.skippedPairs.push(this.currentPair);

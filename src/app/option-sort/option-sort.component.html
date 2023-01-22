@@ -2,6 +2,7 @@
 <app-option-comparison [hidden]="!currentPair"
     [options]="options"
     [currentPair]="currentPair"
+    (selected)="onPreferenceSelected($event)"
     (skipped)="skipCurrentPair()">
 </app-option-comparison>
 <p *ngIf="currentPair">Current pair: {{options[currentPair.a]}} vs. {{options[currentPair.b]}}</p>
