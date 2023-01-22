@@ -1,5 +1,5 @@
 <h1>Preference Ranker</h1>
-<p>This is where my description of this app will go.</p>
+<p>A simple tool for ranking a list of options using a series of direct one-on-one comparisons.</p>
 <ng-container [ngSwitch]="stage">
     <app-option-entry *ngSwitchCase="'list'" (optionsSubmit)="switchToSort($event)"></app-option-entry>
     <app-option-sort *ngSwitchCase="'sort'" [options]="options" (submit)="switchToDisplay($event)"></app-option-sort>
