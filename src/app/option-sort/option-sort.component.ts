@@ -41,9 +41,6 @@ export class OptionSortComponent implements OnChanges {
                     this.table[i][loser] = -1;
                 }
 
-        // Log out the table for debugging
-        // console.debug(this.table);
-
         // Advance the pairs
         delete this.currentPair;
         this.advancePairs();
@@ -71,8 +68,7 @@ export class OptionSortComponent implements OnChanges {
                 // ... let's ask the user for this pair's relationship
                 this.currentPair = nextPair;
                 return;
-            } else // Else: this pair is handled; discard it
-                console.debug(`Skipped ${this.options[nextPair.a]} vs ${this.options[nextPair.b]}`);
+            } // Else: this pair is handled; discard it
         }
 
         // If we reach this point, we have relationships for all pairs
@@ -121,13 +117,10 @@ export class OptionSortComponent implements OnChanges {
         const indices = new Array(this.options.length);
         for (let i = 0; i < indices.length; i++)
             indices[i] = i;
-        console.debug(indices);
         indices.sort((a, b) => this.table[a][b]);
-        console.debug(indices);
 
         // Convert the indices into their options
         const options = indices.map(i => this.options[i]);
-        console.debug(options);
         return options;
     }
 }
