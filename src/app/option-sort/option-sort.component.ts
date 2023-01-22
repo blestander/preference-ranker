@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { IndexPair } from '../index-pair';
 
 @Component({
@@ -9,6 +9,7 @@ import { IndexPair } from '../index-pair';
 export class OptionSortComponent implements OnChanges {
 
     @Input() options: string[] = [];
+    @Output() submit = new EventEmitter<string[]>();
 
     table: number[][] = [];
     currentPair?: IndexPair;
@@ -41,7 +42,7 @@ export class OptionSortComponent implements OnChanges {
                 }
 
         // Log out the table for debugging
-        console.debug(this.table);
+        // console.debug(this.table);
 
         // Advance the pairs
         delete this.currentPair;
@@ -70,11 +71,13 @@ export class OptionSortComponent implements OnChanges {
                 // ... let's ask the user for this pair's relationship
                 this.currentPair = nextPair;
                 return;
-            } // Else: this pair is handled; discard it
+            } else // Else: this pair is handled; discard it
+                console.debug(`Skipped ${this.options[nextPair.a]} vs ${this.options[nextPair.b]}`);
         }
 
         // If we reach this point, we have relationships for all pairs
-        // TODO Submit options
+        const finalList = this.generateSortedList();
+        this.submit.emit(finalList);
     }
 
     private reset(): void {
@@ -111,5 +114,20 @@ export class OptionSortComponent implements OnChanges {
             array[i] = array[j];
             array[j] = temp;
         }
+    }
+
+    private generateSortedList(): string[] {
+        // Order the indices using the comparison table
+        const indices = new Array(this.options.length);
+        for (let i = 0; i < indices.length; i++)
+            indices[i] = i;
+        console.debug(indices);
+        indices.sort((a, b) => this.table[a][b]);
+        console.debug(indices);
+
+        // Convert the indices into their options
+        const options = indices.map(i => this.options[i]);
+        console.debug(options);
+        return options;
     }
 }

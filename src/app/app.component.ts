@@ -14,4 +14,9 @@ export class AppComponent {
         this.stage = 'sort';
         this.options = options;
     }
+
+    switchToDisplay(options: string[]): void {
+        this.stage = 'display';
+        this.options = options;
+    }
 }
