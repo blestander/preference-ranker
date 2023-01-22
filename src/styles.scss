@@ -58,5 +58,8 @@ body {
     }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.small {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+}
