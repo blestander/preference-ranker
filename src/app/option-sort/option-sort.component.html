@@ -1,7 +1,8 @@
 <h2>Which Option Do You Prefer?</h2>
 <app-option-comparison [hidden]="!currentPair"
     [options]="options"
-    [currentPair]="currentPair">
+    [currentPair]="currentPair"
+    (skipped)="skipCurrentPair()">
 </app-option-comparison>
 <p *ngIf="currentPair">Current pair: {{options[currentPair.a]}} vs. {{options[currentPair.b]}}</p>
 <ol start="0">

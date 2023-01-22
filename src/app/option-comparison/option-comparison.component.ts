@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { IndexPair } from '../index-pair';
 
 @Component({
@@ -9,6 +9,8 @@ import { IndexPair } from '../index-pair';
 export class OptionComparisonComponent implements OnChanges {
     @Input() options!: string[];
     @Input() currentPair?: IndexPair;
+    @Output() selected = new EventEmitter<IndexPair>();
+    @Output() skipped = new EventEmitter<void>();
 
     first?: IndexPair;
     second?: IndexPair;

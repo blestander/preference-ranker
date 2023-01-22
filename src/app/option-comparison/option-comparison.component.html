@@ -1,11 +1,11 @@
 <mat-action-list>
-    <button mat-list-item *ngIf="first">
+    <button mat-list-item *ngIf="first" (click)="selected.emit(first)">
         {{ options[first.a] }}
     </button>
-    <button mat-list-item *ngIf="second">
+    <button mat-list-item *ngIf="second" (click)="selected.emit(second)">
         {{ options[second.a] }}
     </button>
-    <button mat-list-item>
+    <button mat-list-item (click)="skipped.emit()">
         Skip for Now
     </button>
 </mat-action-list>

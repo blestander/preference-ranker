@@ -21,6 +21,14 @@ export class OptionSortComponent implements OnChanges {
             this.reset();
     }
 
+    skipCurrentPair(): void {
+        if (this.currentPair) {
+            this.skippedPairs.push(this.currentPair);
+            delete this.currentPair;
+            this.advancePairs();
+        }
+    }
+
     private advancePairs(): void {
         if (this.nextPairs.length == 0) // Ran out of unseen pairs in nextPairs
             if (this.skippedPairs.length > 0) { // Have skipped pairs we can reshuffle back into nextPairs
